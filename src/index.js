@@ -4,7 +4,7 @@ import * as github from "@actions/github";
 try {
   // `who-to-greet` input defined in action metadata file
   const nameToGreet = core.getInput("who-to-greet");
-  core.info(`Hello ${nameToGreet}!`);
+  core.info(`Hello ${nameToGreet}, dear friend!`);
 
   // Get the current time and set it as an output variable
   const time = new Date().toTimeString();
