@@ -1,0 +1,27 @@
+name: Smoke test release
+
+on:
+  release:
+    types: [published]
+
+permissions:
+  contents: read
+
+jobs:
+  smoke:
+    name: Smoke test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout release tag
+        uses: actions/checkout@v7
+        with:
+          ref: ${{ github.event.release.tag_name }}
+
+      - name: Run action from release tag
+        uses: ./
+        id: hello
+        with:
+          who-to-greet: Mona the Octocat
+
+      - name: Get the output time
+        run: echo "The time was ${{ steps.hello.outputs.time }}"
