@@ -28,7 +28,19 @@
     "@rollup/plugin-node-resolve": "^16.0.3",
     "rollup": "^4.62.3"
   },
+  "private": true,
   "release": {
-    "branches": ["main", "next"]
+    "branches": ["main", "next"],
+    "plugins": [
+      "@semantic-release/commit-analyzer",
+      "@semantic-release/release-notes-generator",
+      [
+        "@semantic-release/npm",
+        {
+          "npmPublish": false
+        }
+      ],
+      "@semantic-release/github"
+    ]
   }
 }
