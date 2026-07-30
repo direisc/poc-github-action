@@ -33674,7 +33674,7 @@ const context = new Context();
 try {
   // `who-to-greet` input defined in action metadata file
   const nameToGreet = getInput("who-to-greet");
-  info(`Hello ${nameToGreet}!`);
+  info(`Hello ${nameToGreet}, dear friend!`);
 
   // Get the current time and set it as an output variable
   const time = new Date().toTimeString();
