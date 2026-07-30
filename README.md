@@ -16,8 +16,10 @@ The time we greeted you.
 
 ## Example usage
 
+Use a release tag (`@v1` or `@vX.Y.Z`). `@main` is not supported — the runnable `dist/` bundle exists only on release tags.
+
 ```yaml
-uses: actions/poc-github-action@e76147da8e5c81eaf017dede5645551d4b94427b
+uses: direisc/poc-github-action@v1
 with:
   who-to-greet: Mona the Octocat
 ```

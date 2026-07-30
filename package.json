@@ -26,11 +26,16 @@
   "devDependencies": {
     "@rollup/plugin-commonjs": "^29.0.3",
     "@rollup/plugin-node-resolve": "^16.0.3",
-    "rollup": "^4.62.3"
+    "@semantic-release/exec": "^7.1.0",
+    "rollup": "^4.62.3",
+    "semantic-release": "^25.0.8"
   },
   "private": true,
   "release": {
-    "branches": ["main", "next"],
+    "branches": [
+      "main",
+      "next"
+    ],
     "plugins": [
       "@semantic-release/commit-analyzer",
       "@semantic-release/release-notes-generator",
@@ -40,7 +45,13 @@
           "npmPublish": false
         }
       ],
-      "@semantic-release/github"
+      "@semantic-release/github",
+      [
+        "@semantic-release/exec",
+        {
+          "successCmd": "echo \"new_release_published=true\" >> \"$GITHUB_OUTPUT\" && echo \"new_release_version=${nextRelease.version}\" >> \"$GITHUB_OUTPUT\" && echo \"new_release_git_tag=${nextRelease.gitTag}\" >> \"$GITHUB_OUTPUT\""
+        }
+      ]
     ]
   }
 }
